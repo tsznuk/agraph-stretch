@@ -1,0 +1,4 @@
+#!/bin/bash -e
+
+# Start AllegroGraph daemon
+/app/agraph/bin/agraph-control --config /etc/agraph.cfg start

@@ -1,0 +1,13 @@
+#!/bin/bash -e
+
+# Make sure shared memory requirements are met.
+shm_size=$(df -P /dev/shm | grep -v Filesystem | awk '{print $2}')
+
+if [ "$shm_size" -lt 1048576 ]; then
+    cat <<EOF
+Insufficient shared memory - at least one gigabyte is needed. 
+If the container was started uisng 'docker run' then the 
+'--shm-size' option should be used  (e.g. --shm-size 1g).
+EOF
+    exit 1
+fi

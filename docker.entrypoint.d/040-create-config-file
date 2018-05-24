@@ -1,0 +1,7 @@
+#!/bin/bash -e
+
+rm -f /etc/agraph.cfg
+for f in $(find /etc/agraph.conf.d/ -type f -name '*.conf'); do
+    cat "$f" | envsubst >> /etc/agraph.cfg
+    echo >> /etc/agraph.cfg
+done

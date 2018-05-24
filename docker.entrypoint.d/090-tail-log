@@ -1,0 +1,16 @@
+#!/bin/bash -e
+
+# Monitor the log file and terminate on signal
+
+function terminate {
+    echo Shutting down AllegroGraph
+    /app/agraph/bin/agraph-control --config /etc/agraph.cfg stop
+    exit 0
+}
+
+trap "echo Caught signal; terminate" SIGINT SIGTERM SIGQUIT
+
+# Monitor the logfile.
+touch ${AGRAPH_DATA_DIR}/log/agraph.log
+tail -f ${AGRAPH_DATA_DIR}/log/agraph.log &
+wait $!
