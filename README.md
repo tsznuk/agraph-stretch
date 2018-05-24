@@ -37,7 +37,8 @@ The AllegroGraph server configuration file is split into fragments
 stored in the `/etc/agraph.conf.d` directory. All files with the
 `.conf` extension located in that directory or one of its
 subdirectories are concatenated at runtime to form the final
-configuration file.
+configuration file. Environment variable substitution is performed
+during this process.
 
 The configuration can be changed by:
    
@@ -66,7 +67,7 @@ Docker entrypoint for this image runs all executable files from the
 `/etc/docker.entrypoint.d/` directory, in alphabetical order. It is
 possible to change the commands by:
 
-   - Mounting more config files at runtime. It is also possible to
+   - Mounting more script files at runtime. It is also possible to
      overwrite an existing file in this way.
    - Creating a derived image. In this case all files from the
      `docker.entrypoint.d` directory will be copied to the right place
