@@ -1,6 +1,6 @@
 # Docker image for AllegroGraph on Debian Stretch
 
-This Docker image contains AllegroGraph 6.4.1 with minimal
+This Docker image contains AllegroGraph with minimal
 configuration that can be easily extended.
 
 ## Running
