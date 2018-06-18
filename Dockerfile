@@ -1,6 +1,6 @@
 FROM debian:stretch-slim
 
-ARG agraph_version=6.4.1
+ARG agraph_version=6.4.2
 
 # This can be used to move all data files (e.g. to a volume)
 ENV AGRAPH_DATA_DIR=/data
