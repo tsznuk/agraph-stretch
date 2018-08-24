@@ -8,7 +8,7 @@ configuration that can be easily extended.
 The image is available in the Docker Registry. Here is a sample
 command that runs it locally:
 
-    docker run -i -m 4g -p 10000-10035:10000-10035 --shm-size 4g tsznuk/agraph-stretch:v6.4.1
+    docker run -i -m 4g -p 10000-10035:10000-10035 --shm-size 4g tsznuk/agraph-stretch
 
 Note the following `docker run` arguments used in the above command:
 
