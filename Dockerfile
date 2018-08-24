@@ -1,6 +1,6 @@
 FROM debian:stretch-slim
 
-ARG agraph_version=6.4.2
+ARG agraph_version=6.4.3
 
 # This can be used to move all data files (e.g. to a volume)
 ENV AGRAPH_DATA_DIR=/data
@@ -12,9 +12,6 @@ ADD https://franz.com/ftp/pri/acl/ag/ag${agraph_version}/linuxamd64.64/agraph-${
 RUN tar zxf /tmp/agraph.tar.gz -C /tmp \
   && /tmp/agraph-${agraph_version}/install-agraph --no-configure /app/agraph \
   && rm -rf /tmp/agraph.tar.gz /tmp/agraph-${agraph_version}
-
-# Add mecab configuration (should not be needed with AG 6.4.2+)
-COPY mecabrc /etc/mecabrc
 
 # Copy config and entrypoint fragments.
 COPY docker.entrypoint.d /etc/docker.entrypoint.d
