@@ -1,13 +1,15 @@
 FROM debian:stretch-slim
 
-ARG agraph_version=6.4.4
+ARG agraph_version=6.4.5
+# Leave empty for final releases
+ARG agraph_release=.rc2
 
 # This can be used to move all data files (e.g. to a volume)
 ENV AGRAPH_DATA_DIR=/data
 
 RUN apt-get update && apt-get install -y bzip2 libssl1.0-dev gettext-base debianutils
 
-ADD https://franz.com/ftp/pri/acl/ag/ag${agraph_version}/linuxamd64.64/agraph-${agraph_version}-linuxamd64.64.tar.gz /tmp/agraph.tar.gz
+ADD https://franz.com/ftp/pri/acl/ag/ag${agraph_version}${agraph_release}/linuxamd64.64/agraph-${agraph_version}-linuxamd64.64.tar.gz /tmp/agraph.tar.gz
     
 RUN tar zxf /tmp/agraph.tar.gz -C /tmp \
   && /tmp/agraph-${agraph_version}/install-agraph --no-configure /app/agraph \
