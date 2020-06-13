@@ -1,6 +1,6 @@
 FROM debian:stretch-slim
 
-ARG agraph_version=6.5.0
+ARG agraph_version=7.0.0
 # Leave empty for final releases
 ARG agraph_release=
 
